@@ -9,7 +9,7 @@ acesso = int(input())
 def login():
     novoUsuario = input("login: ")
     senha = input("password: ")
-    naLista = {"nome":novoUsuario, "senha":senha}
+    naLista = [novoUsuario, senha]
     return naLista
 
 def addLista():
@@ -17,12 +17,10 @@ def addLista():
     usuario.write(str(login()))
     usuario.close()
 
-
 def verLista():
     listaUsuario = open("login", "r")
-    checaUsuario = str(listaUsuario.readlines())
+    checaUsuario = listaUsuario.readlines()
     listaUsuario.close()
-
 
 def validarUsuario():
     login()
@@ -32,4 +30,3 @@ def validarUsuario():
 if acesso == 1:
    login()
    nome = login()
-   
