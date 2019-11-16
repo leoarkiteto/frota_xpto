@@ -5,7 +5,7 @@ def iniciar():
     print("[1] - NOVO USUARIO \t[2] - ACESSO SISTEMA")
     acesso = int(input())
     return acesso
-    
+
 def login():
     novoUsuario = input("login: ")
     senha = input("password: ")
@@ -24,11 +24,11 @@ def verLista():
     return checaUsuario
 
 ###### [USUARIO/ADMINISTRADOR] ######
-if (iniciar() == 1):
-    login()
-    nome = login()
-elif(iniciar() == 2):
-    print("OPÇOES DE ADMINISTRADOR")
+start = iniciar()
+
+if(start == 1):
+    print("login de cadastro")
+elif(start == 2):
+    print("login de administrador")
 else:
-    print("OPÇÃO INVALIDA, TENTE OUTRA VEZ")
-    iniciar()
+    pi
