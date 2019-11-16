@@ -6,9 +6,8 @@ print('''
 ''')
 acesso = int(input())
 
-
+novoUsuario = ""
 def login():
-    global novoUsuario
     novoUsuario = input("login: ")
     senha = input("password: ")
     naLista = {"nome":novoUsuario, "senha":senha}
