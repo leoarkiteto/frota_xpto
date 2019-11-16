@@ -1,11 +1,11 @@
 import json
 
-print('''
-[1] - NOVO USUARIO
-[2] - ACESSO SISTEMA
-''')
-acesso = int(input())
 
+def iniciar():
+    print("[1] - NOVO USUARIO \t[2] - ACESSO SISTEMA")
+    acesso = int(input())
+    return acesso
+    
 def login():
     novoUsuario = input("login: ")
     senha = input("password: ")
@@ -21,12 +21,14 @@ def verLista():
     listaUsuario = open("login", "r")
     checaUsuario = listaUsuario.readlines()
     listaUsuario.close()
-
-def validarUsuario():
-    login()
-    verLista()
+    return checaUsuario
 
 ###### [USUARIO/ADMINISTRADOR] ######
-if acesso == 1:
-   login()
-   nome = login()
+if (iniciar() == 1):
+    login()
+    nome = login()
+elif(iniciar() == 2):
+    print("OPÇOES DE ADMINISTRADOR")
+else:
+    print("OPÇÃO INVALIDA, TENTE OUTRA VEZ")
+    iniciar()

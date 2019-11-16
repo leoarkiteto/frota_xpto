@@ -1,1 +1,1 @@
-{'nome': 'admin', 'senha': 'admin'}
+['admin', '123']
