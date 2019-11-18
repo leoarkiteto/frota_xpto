@@ -1,34 +1,42 @@
 import json
 
+###### [MODULAÇÃO DO SISTEMA] ######
 
-def iniciar():
+def iniciar():  #FUNCAO DA PAGINA HOME
     print("[1] - NOVO USUARIO \t[2] - ACESSO SISTEMA")
     acesso = int(input())
     return acesso
 
-def login():
-    novoUsuario = input("login: ")
+def login():    #FUNCAO CRIAR LOGIN
+    nome = input("login: ")
     senha = input("password: ")
-    naLista = [novoUsuario, senha]
-    return naLista
+    perfil = "{}, {}".format(nome, senha)
+    return perfil
 
-def addLista():
-    usuario = open("login", "a")
-    usuario.write(str(login()))
-    usuario.close()
+def validarLogin(infoUsuario):  #FUNCAO VALIDAR LOGIN
+    baseDados = open("login", "r")
+    loginBD = "".join(baseDados.readlines())
+    baseDados.close()
+    validar = loginBD.find(infoUsuario)
+    return validar
 
-def verLista():
-    listaUsuario = open("login", "r")
-    checaUsuario = listaUsuario.readlines()
-    listaUsuario.close()
-    return checaUsuario
+def criarLogin(infoUsuario):    #FUNCAO SALVAR LOGIN
+    baseDados = open("login", "a")
+    baseDados.write(infoUsuario + "\n")
+    baseDados.close()
+    print("Dados Cadastrados!")
 
-###### [USUARIO/ADMINISTRADOR] ######
-start = iniciar()
+###### [TELA INICIAL: NOVO USUARIO/ACESSO] ######
 
-if(start == 1):
-    print("login de cadastro")
-elif(start == 2):
-    print("login de administrador")
-else:
-    pi
+opcaoInicio = iniciar()
+while(opcaoInicio == 1):
+    usuario = login()
+    validacao = validarLogin(usuario)
+    while(validacao != -1):
+        usuario = login()
+        validacao = validarLogin(usuario)
+    cadastro = criarLogin(usuario)
+    opcaoInicio = iniciar()
+while(opcaoInicio == 2):
+    pass
+print("Opção Invalida")
