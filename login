@@ -1,1 +1,2 @@
-['admin', '123']
+admin, admin
+leo, 123
